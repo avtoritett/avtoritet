@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="cotacti.html">Контакты</a></li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+        </nav>
+         <div class="top-right">
+                <input type="text" placeholder="Поиск...">
+                <a href="lk.html"><img src="Group 2.png"></img></a>
+                <a href="by.html"><img src="image 1.png"></img></a>
+            </div>
+    </header>
+<main>
+    <section class="register-section">
+      <h1>Оформление заказа</h1>
+      <form id="checkoutForm">
+        <input type="text" placeholder="Фамилия *" required>
+        <input type="text" placeholder="Имя *" required>
+        <input type="text" placeholder="Отчество">
+        <input type="tel" placeholder="Телефон *" required>
+        <input type="email" placeholder="E-mail *" required>
+
+        <p><strong>Общая стоимость:</strong> <span id="total">0</span> руб.</p>
+
+        <p><strong>Способ доставки:</strong></p>
+        <label><input type="radio" name="delivery" required> Самовывоз Бесплатно</label>
+        <label><input type="radio" name="delivery"> Курьер СДЭК от 300 руб.</label>
+
+        <p><strong>Способ оплаты:</strong></p>
+        <label><input type="radio" name="payment" required> Онлайн оплата картой</label>
+        <label><input type="radio" name="payment"> Наличными при получении</label>
+
+        <button type="submit">Оплатить</button>
+      </form>
+    </section>
+  </main>
+
+  
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let sum = cart.reduce((acc, item) => acc + item.price, 0);
+    document.getElementById("total").textContent = sum;
+
+    document.getElementById("checkoutForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      localStorage.removeItem("cart");
+      window.location.href = "success.html";
+    });
+  </script>
+  <footer class="footer">
+        <div class="footer-container">
+            <!-- Логотип -->
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+            </div>
+
+            <!-- Блок "Компания" -->
+            <div class="footer-column">
+                <h3>Компания</h3>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="cotacti.html">Контакты</a></li>
+                </ul>
+            </div>
+
+            <!-- Блок "Полезное" -->
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <ul>
+                    <li><a href="delivery.html">Оплата и доставка</a></li>
+                    <li><a href="return.html">Условия возврата</a></li>
+                </ul>
+            </div>
+
+            <!-- Блок "Контакты" -->
+            <div class="footer-column contacts">
+                <h3>Контакты</h3>
+                <div class="social-links">
+                    <a href="#"><img src="social_15707835.png" alt="VK"></a>
+                    <a href="#"><img src="telegram_black_logo_icon_147073 1.png" alt="Telegram"></a>
+                </div>
+                <div class="contact-info">
+                   <p>📞 <a href="tel:+79279744030">+7 (927) 974-40-30</a></p>
+                    <p>
+                        ✉<span id="email" class="clickable-email"> info@avtoritet.ru</span>
+                    </p>
+                    <div id="feedback" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Копирайт -->
+        <div class="copyright">
+            <p>© 2026 АВТОРИТЕТ</p>
+        </div>
+    </footer>
+</body>
+</html>
+

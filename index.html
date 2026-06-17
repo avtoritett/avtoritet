@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Авторитет</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 70vh; /* 50% от высоты viewport */
+            max-height: 800px; /* Максимальная высота */
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Сохраняет пропорции, обрезает лишнее */
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+            transition: background-color 0.3s;
+            border-radius: 50%; /* Круглые кнопки */
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .slider {
+                height: 40vh;
+            }
+            .prev, .next {
+                font-size: 18px;
+                padding: 12px 16px;
+                left: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+     <header>
+        <div class="top-nav">
+           <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="cotacti.html">Контакты</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+            </nav>
+            <div class="top-right">
+                <input type="text" placeholder="Поиск...">
+                <a href="lk.html"><img src="Group 2.png"></img></a>
+                <a href="by.html"><img src="image 1.png"></img></a>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slides">
+                <div class="slide active">
+                    <img src="банннер.png" alt="Изображение 1">
+                </div>
+                <div class="slide">
+                    <img src="баннер-2.png" alt="Изображение 2">
+                </div>
+            </div>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+    
+        <script>
+            const slides = document.querySelectorAll('.slide');
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+            let currentSlide = 0;
+    
+            function showSlide(index) {
+                if (index < 0) {
+                    currentSlide = slides.length - 1;
+                } else if (index >= slides.length) {
+                    currentSlide = 0;
+                } else {
+                    currentSlide = index;
+                }
+    
+                document.querySelector('.slide.active').classList.remove('active');
+                slides[currentSlide].classList.add('active');
+    
+                const offset = -currentSlide * 100;
+                document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+            }
+    
+            prevButton.addEventListener('click', () => {
+                showSlide(currentSlide - 1);
+            });
+    
+            nextButton.addEventListener('click', () => {
+                showSlide(currentSlide + 1);
+            });
+    
+        </script>
+    </header>
+
+    <section class="categories">
+        <h2 style="margin-bottom: 2%; padding-left: 2%;">Категории</h2>
+        <div class="category-grid">
+            <div class="category">
+                <a href="catalog.html">
+                    <img src="Rectangle 11.png" alt="Костюмы">
+                </a>
+                
+                <h3>Костюмы</h3>
+            </div>
+            <div class="category">
+                <a href="catalog.html">
+                <img src="Rectangle 10.png" alt="Рубашки">
+                </a>
+                <h3>Рубашки</h3>
+            </div>
+            <div class="category">
+                <a href="catalog.html">
+                <img src="Rectangle 7.png" alt="Аксессуары">
+                </a>
+                <h3>Аксессуары</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Узнайте первым о новинках</h2>
+        <form>
+            <input type="email" placeholder="Ваш e-mail*" required>
+            <button type="submit">ПОДПИСАТЬСЯ</button>
+        </form>
+        <p>Нажимая на кнопку «Подписаться», я соглашаюсь на обработку моих персональных<br>
+             данных и ознакомлен(а) с условиями конфиденциальности.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Компания</h3>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="cotacti.html">Контакты</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <ul>
+                    <li><a href="delivery.html">Оплата и доставка</a></li>
+                    <li><a href="return.html">Условия возврата</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contacts">
+                <h3>Контакты</h3>
+                <div class="social-links">
+                    <a href="#"><img src="social_15707835.png" alt="VK"></a>
+                    <a href="#"><img src="telegram_black_logo_icon_147073 1.png" alt="Telegram"></a>
+                </div>
+                <div class="contact-info">
+                    <p>📞 <a href="tel:+79279744030">+7 (927) 974-40-30</a></p>
+                    <p>
+                        ✉<span id="email" class="clickable-email"> info@avtoritet.ru</span>
+                    </p>
+                    <div id="feedback" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2026 АВТОРИТЕТ</p>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const emailElement = document.getElementById('email');
+      const feedback = document.getElementById('feedback');
+
+      emailElement.addEventListener('click', async () => {
+        const email = emailElement.textContent;
+
+        try {
+          await navigator.clipboard.writeText(email);
+          
+          // Показываем успешный результат
+          feedback.textContent = 'Email скопирован!';
+          feedback.className = 'feedback success';
+          
+          // Убираем сообщение через 3 секунды
+          setTimeout(() => {
+            feedback.textContent = '';
+          }, 3000);
+          
+        } catch (err) {
+          console.error('Ошибка копирования:', err);
+          feedback.textContent = 'Не удалось скопировать. Попробуйте вручную.';
+          feedback.className = 'feedback error';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

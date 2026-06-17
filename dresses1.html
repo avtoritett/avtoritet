@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="cotacti.html">Контакты</a></li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+        </nav>
+         <div class="top-right">
+                <input type="text" placeholder="Поиск...">
+                <a href="lk.html"><img src="Group 2.png"></img></a>
+                <a href="by.html"><img src="image 1.png"></img></a>
+            </div>
+    </header>
+
+    <main>
+       <div class="breadcrumb">
+            <a style="color: black; padding-left: 2%;" href="index.html">Главная</a> > <a style="color: black;" href="catalog.html">Каталог</a> > <span> Рубашки</span>
+        </div> 
+<h1 class="catalog-title"></h1>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="rub1.png" >
+        <div class="name">Рубашка из ткани стрейч, полуприлегающий силуэт</div>
+        <div class="price">4 999 руб.</div>
+        <button class="btn1 add-to-cart" data-name="Рубашка из ткани стрейч, полуприлегающий силуэт" data-price="4999">Добавить в корзину</button>
+
+      </div>
+
+      <div class="product-card">
+        <img src="rub2.png" >
+        <div class="name">Рубашка хлопковая, не требует утюжки, полуприлегающий силуэт</div>
+        <div class="price">3 999 руб.</div>
+        <button class="btn1 add-to-cart" data-name="Рубашка хлопковая, не требует утюжки, полуприлегающий силуэт" data-price="3999">Добавить в корзину</button>
+
+      </div>
+
+      <div class="product-card">
+        <img src="rub3.png" >
+        <div class="name">Рубашка из ткани стрейч, полуприлегающий силуэт</div>
+        <div class="price">3 499 руб.</div>
+        <button class="btn1 add-to-cart" data-name="Рубашка из ткани стрейч, полуприлегающий силуэт" data-price="3499">Добавить в корзину</button>
+
+      </div>
+      </div>
+  </main>
+
+
+<footer class="footer">
+        <div class="footer-container">
+            <!-- Логотип -->
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+            </div>
+
+            <!-- Блок "Компания" -->
+            <div class="footer-column">
+                <h3>Компания</h3>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="cotacti.html">Контакты</a></li>
+                </ul>
+            </div>
+
+            <!-- Блок "Полезное" -->
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <ul>
+                    <li><a href="delivery.html">Оплата и доставка</a></li>
+                    <li><a href="return.html">Условия возврата</a></li>
+                </ul>
+            </div>
+
+            <!-- Блок "Контакты" -->
+            <div class="footer-column contacts">
+                <h3>Контакты</h3>
+                <div class="social-links">
+                    <a href="#"><img src="social_15707835.png" alt="VK"></a>
+                    <a href="#"><img src="telegram_black_logo_icon_147073 1.png" alt="Telegram"></a>
+                </div>
+                <div class="contact-info">
+                   <p>📞 <a href="tel:+79279744030">+7 (927) 974-40-30</a></p>
+                    <p>
+                        ✉<span id="email" class="clickable-email"> info@avtoritet.ru</span>
+                    </p>
+                    <div id="feedback" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Копирайт -->
+        <div class="copyright">
+            <p>© 2026 АВТОРИТЕТ</p>
+        </div>
+    </footer>
+    <script>
+    const buttons = document.querySelectorAll(".add-to-cart");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const name = button.dataset.name;
+        const price = parseInt(button.dataset.price);
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push({ name, price });
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(`${name} добавлен в корзину!`);
+      });
+    });
+  </script>
+    </body>
+</html>

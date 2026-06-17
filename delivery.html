@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата и доставка</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="top-nav">
+           <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="cotacti.html">Контакты</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+            </nav>
+            <div class="top-right">
+                <input type="text" placeholder="Поиск...">
+                <a href="lk.html"><img src="Group 2.png"></img></a>
+                <a href="by.html"><img src="image 1.png"></img></a>
+            </div>
+        
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <div class="breadcrumb">
+            <a style="color: black;" href="index.html">Главная</a> > <span>Оплата и доставка</span>
+        </div>
+
+        <h1 style="padding-left: 2%;">Оплата и доставка</h1>
+
+        <div class="content-grid">
+            <div class="payment-options">
+                <h2 style="text-align: center;">Способы оплаты</h2>
+                <p>Вы можете оплатить покупку одним из ниже перечисленных способов:</p>
+                <ul>
+                    <li>наложенным платежом в отделении Почты России</li>
+                    <li>денежным переводом Мир/СБП</li>
+                </ul>
+            </div>
+
+            <div class="delivery-options">
+                <h2 style="text-align: center;">Варианты доставки</h2>
+                <p>Мы готовы предложить несколько вариантов доставки:</p>
+                <ul>
+                    <li>отправка по всей России в отделение Почты России (2–5 дней)</li>
+                    <li>международные сервисы доставки для жителей зарубежья: СДЭК (1–3 недели), Boxberry (3–7 дней)</li>
+                    <li>срок доставки: 2–5 дней с момента заказа</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+   <footer class="footer">
+        <div class="footer-container">
+            <!-- Логотип -->
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+            </div>
+
+            <!-- Блок "Компания" -->
+            <div class="footer-column">
+                <h3>Компания</h3>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="cotacti.html">Контакты</a></li>
+                </ul>
+            </div>
+
+            <!-- Блок "Полезное" -->
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <ul>
+                    <li><a href="delivery.html">Оплата и доставка</a></li>
+                    <li><a href="return.html">Условия возврата</a></li>
+                </ul>
+            </div>
+
+            <!-- Блок "Контакты" -->
+            <div class="footer-column contacts">
+                <h3>Контакты</h3>
+                <div class="social-links">
+                    <a href="#"><img src="social_15707835.png" alt="VK"></a>
+                    <a href="#"><img src="telegram_black_logo_icon_147073 1.png" alt="Telegram"></a>
+                </div>
+                <div class="contact-info">
+                    <p>📞 <a href="tel:+79279744030">+7 (927) 974-40-30</a></p>
+                    <p>
+                        ✉<span id="email" class="clickable-email"> info@avtoritet.ru</span>
+                    </p>
+                    <div id="feedback" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Копирайт -->
+        <div class="copyright">
+            <p>© 2026 АВТОРИТЕТ</p>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const emailElement = document.getElementById('email');
+      const feedback = document.getElementById('feedback');
+
+      emailElement.addEventListener('click', async () => {
+        const email = emailElement.textContent;
+
+        try {
+          await navigator.clipboard.writeText(email);
+          
+          // Показываем успешный результат
+          feedback.textContent = 'Email скопирован!';
+          feedback.className = 'feedback success';
+          
+          // Убираем сообщение через 3 секунды
+          setTimeout(() => {
+            feedback.textContent = '';
+          }, 3000);
+          
+        } catch (err) {
+          console.error('Ошибка копирования:', err);
+          feedback.textContent = 'Не удалось скопировать. Попробуйте вручную.';
+          feedback.className = 'feedback error';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

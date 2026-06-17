@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обмен и возврат</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="top-nav">
+           <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="cotacti.html">Контакты</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+            </nav>
+            <div class="top-right">
+                <input type="text" placeholder="Поиск...">
+                <a href="lk.html"><img src="Group 2.png"></img></a>
+                <a href="by.html"><img src="image 1.png"></img></a>
+            </div>
+       
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <div class="breadcrumb">
+            <a style="color: black;" href="index.html">Главная</a> > <span>Обмен и возврат</span>
+        </div>
+        <div class="txt">
+        <h1>Обмен и возврат</h1>
+        <p>Если вам не подошёл заказ, мы с удовольствием вам его обменяем или примем возврат.</p>
+        <p>Обмен и возврат возможен в случае:</p>
+        </div>
+
+        <div class="conditions-grid">
+            <div class="condition-item">
+                <img  src="Frame (12).png" alt="Иконка">
+                <p style="text-align: center;">если заказ не был <br>
+                    использован и<br>
+                    сохранил товарный<br>
+                    вид (в том числе не<br>
+                    нарушены бирки,<br>
+                    ярлыки, упаковочные<br>
+                    материалы)</p>
+            </div>
+            <div class="condition-item">
+                <img src="Frame (2).png" alt="Иконка">
+                <p style="text-align: center;">возврат и обмен <br>
+                    осуществляется в <br>
+                    течение двух дней с <br>
+                    момента получения <br>
+                    заказа</p>
+            </div>
+            <div class="condition-item">
+                <img src="Frame (3).png" alt="Иконка">
+                <p style="text-align: center;">возврат и обмен <br>
+                    товара возможен <br>
+                    только при отправке <br>
+                    по России</p>
+            </div>
+            <div class="condition-item">
+                <img src="Frame (46).png" alt="Иконка">
+                <p style="text-align: center;">бланк возврата <br>
+                    присутствует в <br>
+                    каждой посылке</p>
+            </div>
+            <div class="condition-item">
+                <img src="Frame (54).png" alt="Иконка">
+                <p style="text-align: center;">все расходы по <br>
+                    обмену и возврату <br>
+                    товара несёт <br>
+                    покупатель</p>
+            </div>
+            <div class="condition-item">
+                <img src="Frame (65).png" alt="Иконка">
+                <p style="text-align: center;">после получения <br>
+                    возврата мы делаем <br>
+                    перевод денежных <br>средств на карту <br>
+                    клиента</p>
+            </div>
+        </div>
+    </main>
+
+
+   <footer class="footer">
+        <div class="footer-container">
+            <!-- Логотип -->
+             <div class="logo">
+                <a href="index.html" class="logo-link">
+                 <img src="logo.png" alt="Логотип компании">
+            </a>
+            </div>
+
+            <!-- Блок "Компания" -->
+            <div class="footer-column">
+                <h3>Компания</h3>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="cotacti.html">Контакты</a></li>
+                </ul>
+            </div>
+
+            <!-- Блок "Полезное" -->
+            <div class="footer-column">
+                <h3>Полезное</h3>
+                <ul>
+                    <li><a href="delivery.html">Оплата и доставка</a></li>
+                    <li><a href="return.html">Условия возврата</a></li>
+                </ul>
+            </div>
+
+            <!-- Блок "Контакты" -->
+            <div class="footer-column contacts">
+                <h3>Контакты</h3>
+                <div class="social-links">
+                    <a href="#"><img src="social_15707835.png" alt="VK"></a>
+                    <a href="#"><img src="telegram_black_logo_icon_147073 1.png" alt="Telegram"></a>
+                </div>
+                <div class="contact-info">
+                    <p>📞 <a href="tel:+79279744030">+7 (927) 974-40-30</a></p>
+                    <p>
+                        ✉<span id="email" class="clickable-email"> info@avtoritet.ru</span>
+                    </p>
+                    <div id="feedback" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Копирайт -->
+        <div class="copyright">
+            <p>© 2026 АВТОРИТЕТ</p>
+        </div>
+        
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const emailElement = document.getElementById('email');
+      const feedback = document.getElementById('feedback');
+
+      emailElement.addEventListener('click', async () => {
+        const email = emailElement.textContent;
+
+        try {
+          await navigator.clipboard.writeText(email);
+          
+          // Показываем успешный результат
+          feedback.textContent = 'Email скопирован!';
+          feedback.className = 'feedback success';
+          
+          // Убираем сообщение через 3 секунды
+          setTimeout(() => {
+            feedback.textContent = '';
+          }, 3000);
+          
+        } catch (err) {
+          console.error('Ошибка копирования:', err);
+          feedback.textContent = 'Не удалось скопировать. Попробуйте вручную.';
+          feedback.className = 'feedback error';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
